@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dnpq3w453fgfg"]
+
+[ext_resource type="Script" uid="uid://cu47whb40hxkc" path="res://addons/godot_tours/godot_tour_entry.gd" id="1_g6y5e"]
+
+[resource]
+script = ExtResource("1_g6y5e")
+title = "Plattformer Guide"
+is_free = true
+is_locked = false
+tour_path = "uid://ccbvkew76gf03"

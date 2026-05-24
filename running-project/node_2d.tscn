@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhqo71dw17wuy"]
+
+[ext_resource type="Script" uid="uid://jyhh01q0bf3o" path="res://node_2d.gd" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://dy8a00wt740bj" path="res://icon.svg" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://bdgfpcnpylot1" path="res://area_2d.gd" id="2_epypp"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_wtcfe")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_epypp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_0e48y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
+texture = ExtResource("2_0e48y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+
+[node name="Area2D3" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
+texture = ExtResource("2_0e48y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
