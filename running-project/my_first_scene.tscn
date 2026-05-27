@@ -1,8 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbkesunrman07"]
+[gd_scene load_steps=3 format=3 uid="uid://dbkesunrman07"]
 
+[ext_resource type="Script" uid="uid://jyhh01q0bf3o" path="res://node_2d.gd" id="1_bo7ot"]
 [ext_resource type="Script" uid="uid://ec0o7fgkh1cy" path="res://sprite_2d.gd" id="1_ebbnx"]
 
 [node name="MyFirstScene" type="Node2D"]
+script = ExtResource("1_bo7ot")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 script = ExtResource("1_ebbnx")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hello Godot!"
