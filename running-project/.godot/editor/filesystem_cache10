@@ -1,11 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1779923266
+::res://::1779926682
 area_2d.gd::GDScript/GDScript::2609703978847172944::1778169222::0::1::::<>Area2D<><>0<>0<><>::
+export_presets.cfg::TextFile::-1::1779925422::0::1::::<><><>0<>0<><>::
 godot_tours.tres::Resource/Resource::7177323684920950834::1778165932::0::1::::<><><>0<>0<><>::uid://cr8qgsi12eexm::::res://addons/godot_tours/godot_tour_list.gd<>uid://b8xnk5t25srbq::::res://tours/godot-first-tour/first_tour.tres<>uid://ccuxp4e384qdg::::res://tours/gallery-shooter/gallery-shooter.tres<>uid://dnpq3w453fgfg::::res://tours/plattformer-guide/platformer-guide.tres
 icon.svg::CompressedTexture2D/CompressedTexture2D::8911964757100330711::1778165001::1778165013::1::::<><><>0<>0<>21e56cd4b68e90c926b1edaefa7b827a<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-my_first_scene.tscn::PackedScene/PackedScene::7250370755857201734::1778166207::0::1::::<><><>0<>0<><>::uid://ec0o7fgkh1cy::::res://sprite_2d.gd
-node_2d.gd::GDScript/GDScript::681683532355515250::1778169186::0::1::::<>Node2D<><>0<>0<><>::
-node_2d.tscn::PackedScene/PackedScene::2911681187805096248::1778169330::0::1::::<><><>0<>0<><>::uid://jyhh01q0bf3o::::res://node_2d.gd<>uid://dy8a00wt740bj::::res://icon.svg<>uid://bdgfpcnpylot1::::res://area_2d.gd
+my_first_scene.tscn::PackedScene::7250370755857201734::1779925422::0::1::::<><><>0<>0<><>::uid://jyhh01q0bf3o::::res://node_2d.gd<>uid://ec0o7fgkh1cy::::res://sprite_2d.gd
+node_2d.gd::GDScript::681683532355515250::1779925422::0::1::::<>Node2D<><>0<>0<><>::
+node_2d.tscn::PackedScene::2911681187805096248::1779924230::0::1::::<><><>0<>0<><>::uid://jyhh01q0bf3o::::res://node_2d.gd<>uid://dy8a00wt740bj::::res://icon.svg<>uid://bdgfpcnpylot1::::res://area_2d.gd
 plug.gd::GDScript/GDScript::1810344767585224670::1778165911::0::1::::<>SceneTree<><>0<>0<><>::
 sprite_2d.gd::GDScript/GDScript::286428744751587100::1778166113::0::1::::<>Sprite2D<><>0<>0<><>::
 ::res://addons/::1779628651
@@ -1056,9 +1057,9 @@ highlight.tscn::PackedScene/PackedScene::7216596171565299285::1778165929::0::1::
 ::res://addons/godot_tours/translation/::1779628651
 translation_parser.gd::GDScript/GDScript::7813011042902035692::1778165929::0::1::::<>EditorTranslationParserPlugin<><>0<>1<><>::
 translation_service.gd::GDScript/GDScript::6841414133772176912::1778165929::0::1::::<>RefCounted<><>0<>0<><>::
-::res://addons/godot_tours/ui/::1779628651
+::res://addons/godot_tours/ui/::1779923867
 theme_utils.gd::GDScript/GDScript::820711945444837550::1778165929::0::1::::<>RefCounted<><>0<>1<><>::
-theme_welcome_menu.tres::Theme/Theme::2260626022723727733::1778168748::0::1::::<><><>0<>0<><>::uid://cxeo2n3ky21xb::::res://addons/godot_tours/assets/fonts/mukta_bold.ttf<>uid://dmv0g5yqal8s7::::res://addons/godot_tours/assets/icons/lock.svg<>uid://b0tcgxag5h452::::res://addons/godot_tours/assets/fonts/poppins_regular.ttf<>uid://b0egmv7mkouwp::::res://addons/godot_tours/assets/fonts/poppins_bold.ttf<>uid://cowlnwvq0rikj::::res://addons/godot_tours/assets/fonts/poppins_italic.ttf<>uid://c3xincxynype7::::res://addons/godot_tours/assets/fonts/hasklug_nerd_mono.otf
+theme_welcome_menu.tres::Theme::2260626022723727733::1779923867::0::1::::<><><>0<>0<><>::uid://cxeo2n3ky21xb::::res://addons/godot_tours/assets/fonts/mukta_bold.ttf<>uid://dmv0g5yqal8s7::::res://addons/godot_tours/assets/icons/lock.svg<>uid://b0tcgxag5h452::::res://addons/godot_tours/assets/fonts/poppins_regular.ttf<>uid://b0egmv7mkouwp::::res://addons/godot_tours/assets/fonts/poppins_bold.ttf<>uid://cowlnwvq0rikj::::res://addons/godot_tours/assets/fonts/poppins_italic.ttf<>uid://c3xincxynype7::::res://addons/godot_tours/assets/fonts/hasklug_nerd_mono.otf
 ui_button_godot_tours.gd::GDScript/GDScript::6498236733241498578::1778165929::0::1::::<>Button<><>0<>1<><>::
 ui_button_godot_tours.tscn::PackedScene/PackedScene::3420466119053531884::1778165929::0::1::::<><><>0<>0<><>::uid://cxeo2n3ky21xb::::res://addons/godot_tours/assets/fonts/mukta_bold.ttf<>uid://cyt2aldaosg5o::::res://addons/godot_tours/ui/ui_button_godot_tours.gd
 ui_selectable_tour.gd::GDScript/GDScript::357656849947913967::1778165929::0::1::::<>Control<><>0<>1<><>::
@@ -1075,7 +1076,7 @@ LICENSE.md::TextFile/TextFile::-1::1778165929::0::1::::<><><>0<>0<><>::
 plugin.cfg::TextFile/TextFile::-1::1778165929::0::1::::<><><>0<>0<><>::
 plugin.gd::GDScript/GDScript::8091802011916394186::1778165929::0::1::::<>EditorPlugin<><>0<>1<><>::
 util.gd::GDScript/GDScript::8924733948124945697::1778165930::0::1::::<>RefCounted<><>0<>1<><>::
-::res://Builds/::1779922777
+::res://Builds/::1779925422
 ::res://tours/::1779628651
 ::res://tours/gallery-shooter/::1779628651
 gallery-shooter.gd::GDScript/GDScript::8514398101466940111::1778165930::0::1::::<>Node<><>0<>0<><>::

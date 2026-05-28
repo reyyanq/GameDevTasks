@@ -1,15 +1,53 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbkesunrman07"]
+[gd_scene load_steps=9 format=3 uid="uid://dbkesunrman07"]
 
 [ext_resource type="Script" uid="uid://jyhh01q0bf3o" path="res://node_2d.gd" id="1_bo7ot"]
-[ext_resource type="Script" uid="uid://ec0o7fgkh1cy" path="res://sprite_2d.gd" id="1_ebbnx"]
+[ext_resource type="Texture2D" uid="uid://dy8a00wt740bj" path="res://icon.svg" id="2_bo7ot"]
+[ext_resource type="Script" uid="uid://cgkfpsoixorfu" path="res://area_2d_1.gd" id="2_j74jb"]
+[ext_resource type="Script" uid="uid://dm77tbdrbodot" path="res://area_2d_2.gd" id="4_n04gt"]
+[ext_resource type="Script" uid="uid://bt3qta0d2fx6s" path="res://area_2d_3.gd" id="5_kurjl"]
 
-[node name="MyFirstScene" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mnu2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8asdn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j74jb"]
+
+[node name="Node2D" type="Node2D"]
 script = ExtResource("1_bo7ot")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-script = ExtResource("1_ebbnx")
+[node name="Area2D_1" type="Area2D" parent="."]
+position = Vector2(242, 368)
+script = ExtResource("2_j74jb")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Hello Godot!"
+[node name="Sprite2D" type="Sprite2D" parent="Area2D_1"]
+texture = ExtResource("2_bo7ot")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_1"]
+shape = SubResource("RectangleShape2D_mnu2n")
+
+[node name="Area2D_2" type="Area2D" parent="."]
+position = Vector2(571, 198)
+script = ExtResource("4_n04gt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_2"]
+shape = SubResource("RectangleShape2D_8asdn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D_2"]
+texture = ExtResource("2_bo7ot")
+
+[node name="Area2D_3" type="Area2D" parent="."]
+position = Vector2(899, 370)
+script = ExtResource("5_kurjl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_3"]
+shape = SubResource("RectangleShape2D_j74jb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D_3"]
+texture = ExtResource("2_bo7ot")
+
+[connection signal="input_event" from="Area2D_1" to="." method="_on_area_2d_1_input_event"]
+[connection signal="input_event" from="Area2D_1" to="Area2D_1" method="_on_input_event"]
+[connection signal="input_event" from="Area2D_2" to="." method="_on_area_2d_2_input_event"]
+[connection signal="input_event" from="Area2D_2" to="Area2D_2" method="_on_input_event"]
+[connection signal="input_event" from="Area2D_3" to="." method="_on_area_2d_3_input_event"]
+[connection signal="input_event" from="Area2D_3" to="Area2D_3" method="_on_input_event"]
