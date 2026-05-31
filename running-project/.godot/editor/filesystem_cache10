@@ -1,16 +1,16 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1780201796
+::res://::1780203814
 area_2d_1.gd::GDScript/GDScript::847228496563866320::1780189567::0::1::::<>Area2D<><>0<>0<><>::
-collectible.tscn::PackedScene::5022682127777787980::1780201796::0::1::::<><><>0<>0<><>::uid://bjws8gf6x4adi::::res://Ninja Adventure - Asset Pack/Items/Treasure/Coin2.png
+collectible.tscn::PackedScene::5022682127777787980::1780203580::0::1::::<><><>0<>0<><>::uid://bjws8gf6x4adi::::res://Ninja Adventure - Asset Pack/Items/Treasure/Coin2.png
+enemy.gd::GDScript::1167030885649556267::1780203580::0::1::::<>CharacterBody2D<><>0<>0<><>::
+enemy.tscn::PackedScene::3302180726806181107::1780203580::0::1::::<><><>0<>0<><>::uid://qvk3fm3qupvf::::res://enemy.gd<>uid://crdbbxi80y166::::res://Ninja Adventure - Asset Pack/Actor/Monster/Beast/Beast.png
 export_presets.cfg::TextFile/TextFile::-1::1780196025::0::1::::<><><>0<>0<><>::
 godot_tours.tres::Resource/Resource::7177323684920950834::1778165932::0::1::::<><><>0<>0<><>::uid://cr8qgsi12eexm::::res://addons/godot_tours/godot_tour_list.gd<>uid://b8xnk5t25srbq::::res://tours/godot-first-tour/first_tour.tres<>uid://ccuxp4e384qdg::::res://tours/gallery-shooter/gallery-shooter.tres<>uid://dnpq3w453fgfg::::res://tours/plattformer-guide/platformer-guide.tres
 icon.svg::CompressedTexture2D/CompressedTexture2D::8911964757100330711::1778165001::1778165013::1::::<><><>0<>0<>21e56cd4b68e90c926b1edaefa7b827a<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-main.tscn::PackedScene::7250370755857201734::1780202085::0::1::::<><><>0<>0<><>::uid://jyhh01q0bf3o::::res://node_2d.gd<>uid://bhenbr106m1qd::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png<>uid://cyhc1foceo1wv::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png<>uid://bgefmjqx6l0x::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetWater.png<>uid://blbq7rx0cdvx3::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetHouse.png<>uid://cdta3t8v8ou57::::res://collectible.tscn<>uid://mcny2mq8m241::::res://area_2d_1.gd<>uid://1hdopdkt1qra::::res://player.gd<>uid://da5nvyqh0cbah::::res://Ninja Adventure - Asset Pack/Actor/Character/SamuraiBlue/SpriteSheet.png<>uid://bnbuo03qv76x0::::res://enemy.tscn
-node_2d.gd::GDScript/GDScript::681683532355515250::1780196025::0::1::::<>Node2D<><>0<>0<><>::
-player.gd::GDScript::1839568523925679362::1780198205::0::1::::<>CharacterBody2D<><>0<>0<><>::
+main.gd::GDScript::681683532355515250::1780203580::0::1::::<>Node2D<><>0<>0<><>::
+main.tscn::PackedScene::7250370755857201734::1780203580::0::1::::<><><>0<>0<><>::uid://jyhh01q0bf3o::::res://main.gd<>uid://bhenbr106m1qd::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png<>uid://cyhc1foceo1wv::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png<>uid://bgefmjqx6l0x::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetWater.png<>uid://blbq7rx0cdvx3::::res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetHouse.png<>uid://cdta3t8v8ou57::::res://collectible.tscn<>uid://mcny2mq8m241::::res://area_2d_1.gd<>uid://1hdopdkt1qra::::res://player.gd<>uid://da5nvyqh0cbah::::res://Ninja Adventure - Asset Pack/Actor/Character/SamuraiBlue/SpriteSheet.png<>uid://bnbuo03qv76x0::::res://enemy.tscn
+player.gd::GDScript::1839568523925679362::1780203580::0::1::::<>CharacterBody2D<><>0<>0<><>::
 plug.gd::GDScript/GDScript::1810344767585224670::1778165911::0::1::::<>SceneTree<><>0<>0<><>::
-enemy.tscn::PackedScene::3302180726806181107::1780201796::0::1::::<><><>0<>0<><>::uid://qvk3fm3qupvf::::res://enemy.gd<>uid://crdbbxi80y166::::res://Ninja Adventure - Asset Pack/Actor/Monster/Beast/Beast.png
-enemy.gd::GDScript::1167030885649556267::1780200796::0::1::::<>CharacterBody2D<><>0<>0<><>::
 ::res://addons/::1779628651
 ::res://addons/gd-plug/::1779628640
 plug.gd::GDScript/GDScript::6138041938731994281::1778165911::0::1::::<>SceneTree<><>0<>1<><>::
