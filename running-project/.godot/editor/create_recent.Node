@@ -1,7 +1,12 @@
-TileMapLayer
-AnimationPlayer
+Timer
+Marker2D
+NavigationAgent2D
+NavigationRegion2D
 CollisionShape2D
 Sprite2D
+CharacterBody2D
+TileMapLayer
+AnimationPlayer
 Area2D
 TileMap
 Label
