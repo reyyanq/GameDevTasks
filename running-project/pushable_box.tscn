@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgu4m8y78a7sm"]
+
+[ext_resource type="Texture2D" uid="uid://bsr6og4bsuj6n" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_s0xvm"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_s0xvm"]
+friction = 0.6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d1qr3"]
+size = Vector2(20, 19)
+
+[node name="PushableBox" type="RigidBody2D"]
+mass = 3.0
+physics_material_override = SubResource("PhysicsMaterial_s0xvm")
+gravity_scale = 0.0
+linear_damp = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s0xvm")
+region_enabled = true
+region_rect = Rect2(0, 32, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_d1qr3")
