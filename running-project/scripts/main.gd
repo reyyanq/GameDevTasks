@@ -1,7 +1,7 @@
 extends Node2D
 
 # load the enemy scene into memory 
-var enemy_scene = preload("res://enemy.tscn")
+var enemy_scene = preload("res://scenes/enemy.tscn")
 
 @onready var spawner_node = $Spawner
 @onready var timer_node = $Spawner/Timer
