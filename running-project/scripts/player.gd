@@ -22,6 +22,10 @@ var is_invincible: bool = false
 var is_dashing: bool = false
 var can_dash: bool = true
 
+# --- INVENTORY SYSTEM ---
+@export var inventory: Inventory 
+@onready var inventory_ui = get_node_or_null("../UI_Layer/InventoryUI") 
+
 func _physics_process(delta: float) -> void:
 	# get the move direction vector from the input map
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -49,6 +53,14 @@ func _physics_process(delta: float) -> void:
 	# ATTACK
 	if Input.is_action_just_pressed("attack"): 
 		attack()
+		
+	# TOGGLE INVENTORY UI
+	if Input.is_action_just_pressed("toggle_inventory"):
+		if inventory_ui:
+			if inventory_ui.visible:
+				inventory_ui.hide()
+			else:
+				inventory_ui.show()
 		
 	move_and_slide()
 	
@@ -142,6 +154,14 @@ func end_dash() -> void:
 	is_invincible = false
 	modulate.a = 1.0
 
+func _ready() -> void:
+	# Initialize a new default inventory if none is assigned in the inspector
+	if not inventory:
+		inventory = Inventory.new()
+	
+	# Connect the inventory to the UI
+	if inventory_ui:
+		inventory_ui.set_inventory(inventory)
 
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	# If the object entering the area is an enemy and there is a "take_damage" function

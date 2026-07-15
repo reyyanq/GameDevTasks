@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bknjiddyfqlf5"]
+
+[ext_resource type="Script" uid="uid://bi28ispx4ov8u" path="res://scripts/item_data.gd" id="1_7oxwe"]
+[ext_resource type="Texture2D" uid="uid://dj0kxb6c2qnnp" path="res://Ninja Adventure - Asset Pack/Items/Potion/LifePot.png" id="1_dmak4"]
+
+[resource]
+script = ExtResource("1_7oxwe")
+item_name = "Red Potion"
+icon = ExtResource("1_dmak4")
+item_type = "Collectible"
+max_stack_size = 10
+metadata/_custom_type_script = "uid://bi28ispx4ov8u"

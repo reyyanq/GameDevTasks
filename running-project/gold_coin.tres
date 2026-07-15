@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://bfmf6truugupl"]
+
+[ext_resource type="Texture2D" uid="uid://cmfikubmpywp4" path="res://Ninja Adventure - Asset Pack/Items/Treasure/GoldCoin.png" id="1_45ts2"]
+[ext_resource type="Script" uid="uid://bi28ispx4ov8u" path="res://scripts/item_data.gd" id="2_tgbp2"]
+
+[resource]
+script = ExtResource("2_tgbp2")
+item_name = "Gold Coin"
+icon = ExtResource("1_45ts2")
+item_type = "Collectible"
+max_stack_size = 3
+metadata/_custom_type_script = "uid://bi28ispx4ov8u"

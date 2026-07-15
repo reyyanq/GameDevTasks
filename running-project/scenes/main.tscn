@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dbkesunrman07"]
+[gd_scene load_steps=26 format=4 uid="uid://dbkesunrman07"]
 
 [ext_resource type="Script" uid="uid://jyhh01q0bf3o" path="res://scripts/main.gd" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://bhenbr106m1qd" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="2_ya4ey"]
@@ -7,9 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://blbq7rx0cdvx3" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetHouse.png" id="5_a8y0u"]
 [ext_resource type="PackedScene" uid="uid://cdta3t8v8ou57" path="res://scenes/collectible.tscn" id="6_jkv2x"]
 [ext_resource type="Script" uid="uid://1hdopdkt1qra" path="res://scripts/player.gd" id="7_jbj1t"]
+[ext_resource type="Resource" uid="uid://bfmf6truugupl" path="res://gold_coin.tres" id="7_trceg"]
+[ext_resource type="Resource" uid="uid://bknjiddyfqlf5" path="res://potion_red.tres" id="8_a8y0u"]
 [ext_resource type="Texture2D" uid="uid://da5nvyqh0cbah" path="res://Ninja Adventure - Asset Pack/Actor/Character/SamuraiBlue/SpriteSheet.png" id="8_muem4"]
 [ext_resource type="PackedScene" uid="uid://bnbuo03qv76x0" path="res://scenes/enemy.tscn" id="9_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://dgu4m8y78a7sm" path="res://scenes/pushable_box.tscn" id="10_0ld40"]
+[ext_resource type="PackedScene" uid="uid://bnue4776odl4" path="res://scenes/inventory_ui.tscn" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4rlt"]
 texture = ExtResource("2_ya4ey")
@@ -3721,14 +3724,6 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_choun")
 
-[sub_resource type="GDScript" id="GDScript_4c57u"]
-script/source = "extends Area2D
-
-func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		modulate = Color.RED 
-"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18xrs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_choun"]
@@ -3754,19 +3749,6 @@ tile_set = SubResource("TileSet_kurjl")
 [node name="TileMapLayerGaps" type="TileMapLayer" parent="TileMapLayerFloor"]
 tile_map_data = PackedByteArray("AAAxAAsAAAADAAcAAAAxAAwAAAADAAcAAAAxAA0AAAADAAcAAAAxAA4AAAADAAcAAAAxAA8AAAADAAgAAAAxAAgAAAADAAYAAAAxAAkAAAAIAAoAAAAyAAkAAAACAAkAAAAwAAkAAAABAAkAAAAvAAkAAAABAAkAAAAuAAkAAAABAAkAAAAtAAkAAAAAAAkAAAAyAAoAAAABAAkAAAAzAAoAAAABAAkAAAA0AAoAAAABAAkAAAA1AAoAAAACAAkAAAAxAB8AAAAAAAAAAAAxACAAAAAAAAEAAAAxACEAAAAAAAEAAAAyAB8AAAABAAAAAAAyACAAAAABAAEAAAAyACEAAAALAAQAAAAzAB8AAAABAAAAAAAzACAAAAABAAEAAAAzACEAAAABAAEAAAAxACIAAAAAAAEAAAAyACIAAAABAAEAAAAzACIAAAABAAEAAAAxACMAAAAAAAEAAAAyACMAAAABAAEAAAAzACMAAAABAAEAAAAxACQAAAAAAAEAAAAyACQAAAABAAEAAAAzACQAAAABAAEAAAAxACUAAAAAAAEAAAAyACUAAAALAAMAAAAzACUAAAABAAEAAAAxACYAAAAAAAEAAAAyACYAAAALAAQAAAAzACYAAAABAAEAAAAxACcAAAAAAAEAAAAyACcAAAABAAEAAAAzACcAAAABAAEAAAAxACgAAAAAAAEAAAAyACgAAAABAAEAAAAzACgAAAABAAEAAAA0AB8AAAABAAAAAAA0ACAAAAABAAEAAAA0ACEAAAABAAEAAAA0ACIAAAABAAEAAAA0ACMAAAALAAMAAAA0ACQAAAABAAEAAAA0ACUAAAABAAEAAAA0ACYAAAABAAEAAAA0ACcAAAALAAQAAAA0ACgAAAABAAEAAAA1AB8AAAACAAAAAAA1ACAAAAACAAEAAAA1ACEAAAACAAEAAAA1ACIAAAACAAEAAAA1ACMAAAACAAEAAAA1ACQAAAACAAEAAAA1ACUAAAACAAEAAAA1ACYAAAACAAEAAAA1ACcAAAACAAEAAAA1ACgAAAACAAEAAAA=")
 tile_set = SubResource("TileSet_ya4ey")
-
-[node name="Area2D_1" parent="." instance=ExtResource("6_jkv2x")]
-position = Vector2(167, 198)
-script = SubResource("GDScript_4c57u")
-
-[node name="Area2D_2" parent="." instance=ExtResource("6_jkv2x")]
-position = Vector2(776, 267)
-
-[node name="Area2D_3" parent="." instance=ExtResource("6_jkv2x")]
-position = Vector2(247, 480)
-
-[node name="Area2D_4" parent="." instance=ExtResource("6_jkv2x")]
-position = Vector2(688, 74)
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(102, 198)
@@ -3797,6 +3779,30 @@ one_shot = true
 position = Vector2(601, 248)
 collision_mask = 7
 
+[node name="Coin_1" parent="." instance=ExtResource("6_jkv2x")]
+position = Vector2(167, 198)
+item_res = ExtResource("7_trceg")
+
+[node name="Coin_2" parent="." instance=ExtResource("6_jkv2x")]
+position = Vector2(776, 267)
+item_res = ExtResource("7_trceg")
+
+[node name="Coin_3" parent="." instance=ExtResource("6_jkv2x")]
+position = Vector2(1011, 132)
+item_res = ExtResource("7_trceg")
+
+[node name="Coin_4" parent="." instance=ExtResource("6_jkv2x")]
+position = Vector2(917, 496)
+item_res = ExtResource("7_trceg")
+
+[node name="Potion_1" parent="." instance=ExtResource("6_jkv2x")]
+position = Vector2(247, 480)
+item_res = ExtResource("8_a8y0u")
+
+[node name="Potion_2" parent="." instance=ExtResource("6_jkv2x")]
+position = Vector2(688, 74)
+item_res = ExtResource("8_a8y0u")
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 position = Vector2(0, -3)
 navigation_polygon = SubResource("NavigationPolygon_4c57u")
@@ -3811,6 +3817,10 @@ autostart = true
 [node name="PushableBox" parent="." instance=ExtResource("10_0ld40")]
 position = Vector2(360, 272)
 
-[connection signal="input_event" from="Area2D_1" to="Area2D_1" method="_on_input_event"]
+[node name="UI_Layer" type="CanvasLayer" parent="."]
+
+[node name="InventoryUI" parent="UI_Layer" instance=ExtResource("11_ya4ey")]
+
 [connection signal="body_entered" from="Player/AttackArea" to="Player" method="_on_attack_area_body_entered"]
 [connection signal="timeout" from="Player/InvincibilityTimer" to="Player" method="_on_invincibility_timer_timeout"]
+[connection signal="input_event" from="Coin_1" to="Coin_1" method="_on_input_event"]

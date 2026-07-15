@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnue4776odl4"]
+
+[ext_resource type="Script" uid="uid://cyu4xxcbj14ev" path="res://scenes/inventory_ui.gd" id="1_tahbm"]
+
+[node name="InventoryUI" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tahbm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Grid" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 3
