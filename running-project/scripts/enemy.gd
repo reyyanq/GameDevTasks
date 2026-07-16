@@ -16,6 +16,10 @@ var player: CharacterBody2D = null
 # navigation agent node added 
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 
+# Particle effects preloaded
+const HIT_EFFECT = preload("res://scenes/hit_effect.tscn")
+const DEATH_EFFECT = preload("res://scenes/death_effect.tscn")
+
 func _ready() -> void:
 	patrol_points.append(global_position) # the current position as the first point
 	
@@ -40,28 +44,23 @@ func _physics_process(_delta: float) -> void:
 
 	# Only apply normal movement AI if the enemy is NOT taking knockback
 	if not is_recoiling:
-		# distance between the enemy and the player
 		var distance_to_player = global_position.distance_to(player.global_position)
 
 		if distance_to_player < chase_threshold:
-			# chase mode: if the player is close -> move toward them
 			chase_player_with_navigation()
 		else:
-			# patrol mode: if the player is far away -> continue patrolling
 			patrol()
 	else:
-		# Smoothly decelerate the knockback velocity to zero over time (friction effect)
+		# Smoothly decelerate the knockback velocity to zero over time
 		velocity = velocity.move_toward(Vector2.ZERO, 800.0 * _delta)
 
 	move_and_slide()
 	
 	# CONTACT DAMAGE LOGIC 
-	# Check if enemy ran into the player during movement
 	for i in get_slide_collision_count():
 		var collision := get_slide_collision(i)
 		var collider := collision.get_collider()
 		
-		# If the object we touched has the "take_damage" function (means it is the player)
 		if collider.has_method("take_damage"):
 			collider.take_damage(1) 
 
@@ -70,7 +69,6 @@ func patrol() -> void:
 	var direction = global_position.direction_to(target_point)
 	velocity = direction * speed
 
-	# if the enemy is very close to the target point, switch to the next patrol point
 	if global_position.distance_to(target_point) < 5.0:
 		current_point_index = (current_point_index + 1) % patrol_points.size()
 
@@ -79,37 +77,47 @@ func chase_player() -> void:
 	velocity = direction * chase_speed
 	
 func chase_player_with_navigation() -> void:
-	# set the player's position as the navigation target
 	nav_agent.target_position = player.global_position
-
-	# get the next safe point on the path
 	var next_path_position = nav_agent.get_next_path_position()
-
-	# move toward the safe path point
 	var direction = global_position.direction_to(next_path_position)
 	velocity = direction * chase_speed
 
+# Processes damage, triggers appropriate particles, and handles knockback 
 func take_damage(amount: int) -> void:
 	hp -= amount
 	print("Enemy hit! Remaining HP: ", hp)
 	
-	# --- KNOCKBACK EFFECT ---
+	# SPAWN HIT PARTICLES
+	# Spawn red hit spark particles upon taking damage
+	var hit_particle = HIT_EFFECT.instantiate()
+	hit_particle.global_position = global_position
+	get_tree().current_scene.add_child(hit_particle)
+	
+	# Handle death sequence if health drops to or below zero
+	if hp <= 0:
+		die()
+		return
+	
+	# KNOCKBACK EFFECT 
 	var current_player = get_tree().current_scene.get_node_or_null("Player")
 	if current_player:
 		var knockback_direction = global_position.direction_to(current_player.global_position).normalized()
 		var knockback_force = 200.0 
 		
-		# Apply the backward force
 		velocity = -knockback_direction * knockback_force
 		is_recoiling = true
-		
-		# Visual: temporarily change the enemy to translucent
 		modulate.a = 0.4
 		
-		# Stop the recoil state and reset opacity after 0.2 seconds
+		# Stop recoil state and reset opacity after 0.2 seconds
 		await get_tree().create_timer(0.2).timeout
 		is_recoiling = false
-		modulate.a = 1.0 # Reset enemy's color to its original state
+		modulate.a = 1.0
+
+func die() -> void:
+	# SPAWN DEATH PARTICLES 
+	# Spawn grey smoke particles upon death
+	var death_particle = DEATH_EFFECT.instantiate()
+	death_particle.global_position = global_position
+	get_tree().current_scene.add_child(death_particle)
 	
-	if hp <= 0:
-		queue_free() # remove enemy
+	queue_free()

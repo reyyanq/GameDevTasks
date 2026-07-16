@@ -1,15 +1,14 @@
-[gd_scene load_steps=26 format=4 uid="uid://dbkesunrman07"]
+[gd_scene load_steps=23 format=4 uid="uid://dbkesunrman07"]
 
 [ext_resource type="Script" uid="uid://jyhh01q0bf3o" path="res://scripts/main.gd" id="1_choun"]
 [ext_resource type="Texture2D" uid="uid://bhenbr106m1qd" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="2_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://cyhc1foceo1wv" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="3_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://bgefmjqx6l0x" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetWater.png" id="4_trceg"]
 [ext_resource type="Texture2D" uid="uid://blbq7rx0cdvx3" path="res://Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetHouse.png" id="5_a8y0u"]
+[ext_resource type="PackedScene" uid="uid://0ocmaryjfvvt" path="res://scenes/player.tscn" id="6_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://cdta3t8v8ou57" path="res://scenes/collectible.tscn" id="6_jkv2x"]
-[ext_resource type="Script" uid="uid://1hdopdkt1qra" path="res://scripts/player.gd" id="7_jbj1t"]
 [ext_resource type="Resource" uid="uid://bfmf6truugupl" path="res://gold_coin.tres" id="7_trceg"]
 [ext_resource type="Resource" uid="uid://bknjiddyfqlf5" path="res://potion_red.tres" id="8_a8y0u"]
-[ext_resource type="Texture2D" uid="uid://da5nvyqh0cbah" path="res://Ninja Adventure - Asset Pack/Actor/Character/SamuraiBlue/SpriteSheet.png" id="8_muem4"]
 [ext_resource type="PackedScene" uid="uid://bnbuo03qv76x0" path="res://scenes/enemy.tscn" id="9_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://dgu4m8y78a7sm" path="res://scenes/pushable_box.tscn" id="10_0ld40"]
 [ext_resource type="PackedScene" uid="uid://bnue4776odl4" path="res://scenes/inventory_ui.tscn" id="11_ya4ey"]
@@ -3724,11 +3723,6 @@ physics_layer_0/collision_layer = 4
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_choun")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_18xrs"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_choun"]
-radius = 32.0
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4c57u"]
 vertices = PackedVector2Array(1139.04, 10.9766, 1141.95, 646, 8.96875, 646, 7.03125, 9.00781)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
@@ -3750,30 +3744,8 @@ tile_set = SubResource("TileSet_kurjl")
 tile_map_data = PackedByteArray("AAAxAAsAAAADAAcAAAAxAAwAAAADAAcAAAAxAA0AAAADAAcAAAAxAA4AAAADAAcAAAAxAA8AAAADAAgAAAAxAAgAAAADAAYAAAAxAAkAAAAIAAoAAAAyAAkAAAACAAkAAAAwAAkAAAABAAkAAAAvAAkAAAABAAkAAAAuAAkAAAABAAkAAAAtAAkAAAAAAAkAAAAyAAoAAAABAAkAAAAzAAoAAAABAAkAAAA0AAoAAAABAAkAAAA1AAoAAAACAAkAAAAxAB8AAAAAAAAAAAAxACAAAAAAAAEAAAAxACEAAAAAAAEAAAAyAB8AAAABAAAAAAAyACAAAAABAAEAAAAyACEAAAALAAQAAAAzAB8AAAABAAAAAAAzACAAAAABAAEAAAAzACEAAAABAAEAAAAxACIAAAAAAAEAAAAyACIAAAABAAEAAAAzACIAAAABAAEAAAAxACMAAAAAAAEAAAAyACMAAAABAAEAAAAzACMAAAABAAEAAAAxACQAAAAAAAEAAAAyACQAAAABAAEAAAAzACQAAAABAAEAAAAxACUAAAAAAAEAAAAyACUAAAALAAMAAAAzACUAAAABAAEAAAAxACYAAAAAAAEAAAAyACYAAAALAAQAAAAzACYAAAABAAEAAAAxACcAAAAAAAEAAAAyACcAAAABAAEAAAAzACcAAAABAAEAAAAxACgAAAAAAAEAAAAyACgAAAABAAEAAAAzACgAAAABAAEAAAA0AB8AAAABAAAAAAA0ACAAAAABAAEAAAA0ACEAAAABAAEAAAA0ACIAAAABAAEAAAA0ACMAAAALAAMAAAA0ACQAAAABAAEAAAA0ACUAAAABAAEAAAA0ACYAAAABAAEAAAA0ACcAAAALAAQAAAA0ACgAAAABAAEAAAA1AB8AAAACAAAAAAA1ACAAAAACAAEAAAA1ACEAAAACAAEAAAA1ACIAAAACAAEAAAA1ACMAAAACAAEAAAA1ACQAAAACAAEAAAA1ACUAAAACAAEAAAA1ACYAAAACAAEAAAA1ACcAAAACAAEAAAA1ACgAAAACAAEAAAA=")
 tile_set = SubResource("TileSet_ya4ey")
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("6_eb6dy")]
 position = Vector2(102, 198)
-collision_mask = 7
-script = ExtResource("7_jbj1t")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-texture = ExtResource("8_muem4")
-region_enabled = true
-region_rect = Rect2(0, 0, 16.923, 18.8091)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_18xrs")
-
-[node name="AttackArea" type="Area2D" parent="Player"]
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AttackArea"]
-shape = SubResource("CircleShape2D_choun")
-disabled = true
-
-[node name="InvincibilityTimer" type="Timer" parent="Player"]
-wait_time = 0.5
-one_shot = true
 
 [node name="Enemy" parent="." instance=ExtResource("9_dp3eg")]
 position = Vector2(601, 248)
@@ -3821,6 +3793,4 @@ position = Vector2(360, 272)
 
 [node name="InventoryUI" parent="UI_Layer" instance=ExtResource("11_ya4ey")]
 
-[connection signal="body_entered" from="Player/AttackArea" to="Player" method="_on_attack_area_body_entered"]
-[connection signal="timeout" from="Player/InvincibilityTimer" to="Player" method="_on_invincibility_timer_timeout"]
 [connection signal="input_event" from="Coin_1" to="Coin_1" method="_on_input_event"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://0ocmaryjfvvt"]
+
+[ext_resource type="Script" uid="uid://1hdopdkt1qra" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://da5nvyqh0cbah" path="res://Ninja Adventure - Asset Pack/Actor/Character/SamuraiBlue/SpriteSheet.png" id="2_qhqgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_18xrs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_choun"]
+radius = 32.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 7
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qhqgy")
+region_enabled = true
+region_rect = Rect2(0, 0, 16.923, 18.8091)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_18xrs")
+
+[node name="AttackArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_choun")
+disabled = true
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="DashParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.3
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

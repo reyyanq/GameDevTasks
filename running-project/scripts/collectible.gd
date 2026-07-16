@@ -4,6 +4,9 @@ extends Area2D
 @export var item_res: ItemData
 @export var quantity: int = 1
 
+# the pickup particle effect scene
+const PICKUP_EFFECT = preload("res://scenes/pickup_effect.tscn")
+
 @onready var sprite: Sprite2D = $Sprite2D
 
 func _ready() -> void:
@@ -17,9 +20,14 @@ func _ready() -> void:
 		
 
 func _on_body_entered(body: Node2D) -> void:
-	# Verify that the overlapping body is indeed the Player and has inventory
+	# Check if the colliding object is the player and has an inventory
 	if "inventory" in body and body.inventory != null:
 		var success = body.inventory.add_item(item_res, quantity)
 		if success:
-			print("Successfully added to inventory: ", item_res.item_name, " x", quantity)
-			queue_free() # remove the collectible from the scene
+			# trigger the visual particle effect
+			var effect = PICKUP_EFFECT.instantiate()
+			effect.global_position = global_position
+			get_tree().current_scene.add_child(effect)
+			
+			print("Successfully added to inventory: ", item_res.item_name)
+			queue_free() 

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://blioq3jktwgge"]
+
+[ext_resource type="Script" uid="uid://lxp8u53ew0wa" path="res://scripts/hit_effect.gd" id="1_flhpc"]
+
+[node name="HitParticles" type="CPUParticles2D"]
+emitting = false
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 70.0
+scale_amount_min = 1.5
+scale_amount_max = 3.0
+color = Color(0.565956, 0, 0.00962726, 1)
+script = ExtResource("1_flhpc")

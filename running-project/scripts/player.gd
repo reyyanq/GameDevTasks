@@ -26,6 +26,9 @@ var can_dash: bool = true
 @export var inventory: Inventory 
 @onready var inventory_ui = get_node_or_null("../UI_Layer/InventoryUI") 
 
+# the hit particle effect scene
+const HIT_EFFECT = preload("res://scenes/hit_effect.tscn")
+
 func _physics_process(delta: float) -> void:
 	# get the move direction vector from the input map
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -92,6 +95,11 @@ func take_damage(amount: int) -> void:
 	current_hp -= amount
 	print("Player hit! Remaining HP: ", current_hp)
 	
+	# SPAWN HIT PARTICLES 
+	var hit_particle = HIT_EFFECT.instantiate()
+	hit_particle.global_position = global_position 
+	get_tree().current_scene.add_child(hit_particle)
+	
 	# Initiate immortality as soon as the player takes damage
 	is_invincible = true
 	invincibility_timer.start()
@@ -120,6 +128,10 @@ func start_dash(move_dir: Vector2) -> void:
 	is_dashing = true
 	can_dash = false
 	
+	# Enable dash particle emission
+	if has_node("DashParticles"):
+		$DashParticles.emitting = true
+	
 	# Determine dash direction
 	var dash_dir = move_dir.normalized() if move_dir.length() > 0.1 else last_direction
 	velocity = dash_dir * DASH_SPEED
@@ -145,6 +157,10 @@ func start_dash(move_dir: Vector2) -> void:
 func end_dash() -> void:
 	is_dashing = false
 	velocity = Vector2.ZERO
+	
+	# Disable dash particle emission
+	if has_node("DashParticles"):
+		$DashParticles.emitting = false
 	
 	# Restore normal collision masks after dash ends
 	set_collision_mask_value(2, true)
